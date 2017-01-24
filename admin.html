@@ -7,34 +7,62 @@
 </head>
 <body>
 
+
 <form>
 
 <div> 
-	<label id="label2" value="Add Deaprtments"></label><br>
-	<input type="text" id="department">
+
+	<input type="button" class="adminButton" id="button1" value=" Logout " onclick="logout();"/> <!--id = logout it did not run-->
+	<br>
+	<label id="label2" value="Add Deaprtments"></label>
+	<br>
+	<input type="text" type="text" id="department">
 	<br><br>
-	<input type="button" value="Add department" id="submit2" onclick="return addDep();"/>
-</div>
-<br>
-
-<div>
-	<label id="label2" value="Select Deaprtments"></label>
-
-	<select id="select1">
-    
-  		</select>
+	<input type="button" class="adminButton" value="Add department" id="submit2" onclick="return addDep();"/>
+	<br>
+	<label id="label2" value="Select Departments"></label>
+	<br>
+	Select a detpartment <select id="select1"></select>
+ 
+	
   	<br><br>
 	<label id="label3" value="Add Subjects"></label>
-	<input type="text" name="subject">
+	<input type="text" type="text" id="subject">
   	<br><br>
-  	<input type="button" id="submit1" value="Add Subject"/>
+  	<input type="button" class="adminButton" id="submit1" value="Add Subject" onclick="return addSub();"/>
+  	<br><br>
+  	<input type="button" class="adminButton" id="submit2" value="Show Subject" onclick="return shoSub();"/>
+  	<br><br>
+  	Select a subject <select id="select2"></select>
 
-  	<select id="subject"></select>
+
+  	<br><br>
+	<label id="label3" value="Add Teachers"></label>
+	
+	
+	Teacher ID: <input type="text" id="id">
+	<br><br>
+	Teacher password: <input type="text" id="pass"> 
+	<br><br>
+  	<input type="button" class="adminButton" id="submit3" value="Add Teachers" onclick="return addTeach();"/>
+  	<br><br>
+  	<input type="button" class="adminButton" id="submit4" value="Show Teachers" onclick="return shoTeach();"/>
+  	<br><br>
+  	Select a Teacher <select id="select3"></select>
+
+ 	<br><br>
+	HOD ID: <input type="text" id="hodid">
+	<br><br>
+	HOD password: <input type="text" id="hodpass"> 
+	<br><br>
+	<input type="button" class="adminButton" id="submit4" value="Add HOD" onclick="return addHOD();"/>
+	<br><br>
+	<label id="errorLabel"> </label>
+
 </div>
-
   
 </form>
-
+<script type="text/javascript" src="validation.js"></script>
 <script type="text/javascript" src="scriptAdmin.js"></script>
 
 </body>

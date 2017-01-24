@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+
+	<title></title>
+</head>
+<body>
+
+	<form>
+		<h1>Student Profile</h1>
+		<div>
+			<img src="student.png" alt="Image Unavailable" height="70" width="70"/>
+			<input type="button" id="logoutButtton" value=" Logout " onclick="return logout();"/>
+			<h3>PERSONAL DETAILS</h3> 
+			<h5>Name</h5>  <input type="text" id="name" readonly="true"/>
+			<h5>Age</h5>	<input type="number" id="age" readonly="true"/>
+			<h5>Gender</h5> <input type="text" id="gender" readonly="true"/>
+			<h5>Number</h5> <input type="text" id="number" readonly="true"/>
+			<label id="errorLabel"></label>
+			<input type="button" id="button1" value=" EDIT " onclick="return editDetails();"/>
+			<input type="button" id="button2" value=" SAVE " onclick="return saveDetails();"/>
+
+		</div>
+
+
+	</form>
+
+<script type="text/javascript" src="validation.js"></script>
+<script type="text/javascript" src="studentScript.js"></script>
+</body>
+</html>

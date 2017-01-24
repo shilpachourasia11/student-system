@@ -1,0 +1,51 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+
+<title></title>
+<body>
+	<form>
+		<h1>Teacher Profile</h1>
+		<label id="errorLabel"></label>
+		<div>
+
+			<img src="teacher.jpg" alt="Image Unavailable" height="70" width="70"/>
+			<input type="button" id="logoutButtton" value=" Logout " onclick="return logout();"/>
+			<h3>PERSONAL DETAILS</h3> 
+			<h5>Name</h5>  <input type="text" id="name" readonly="true"/>
+			<h5>Age</h5>	<input type="number" id="age" readonly="true"/>
+			<h5>Gender</h5> <input type="text" id="gender" readonly="true"/>
+			
+			<input type="button" id="button1" value=" EDIT " onclick="return editPD();"/>
+			<input type="button" id="button2" value=" SAVE " onclick="return savePD();"/>
+
+		</div>
+		<div>
+
+			<h3>QUALIFICATIONS</h3>
+			<h5>Master</h5>  <input type="text" id="master" readonly="true"/>
+			<h5>Bachelor</h5>  <input type="text" id="bachelor" readonly="true"/>
+			<h5>Higher</h5>	<input type="text" id="higher" readonly="true"/>
+			<h5>Secondary</h5> <input type="text" id="second" readonly="true"/>
+
+			<input type="button" id="button3" value=" EDIT " onclick="return editQD();"/>
+			<input type="button" id="button4" value=" SAVE " onclick="return saveQD();"/>
+			<br><br>
+			<input type="button" id="button5" value=" Add Students" onclick="return addStudents();"/>
+			<label id="label1"></label>
+			
+		</div>
+			
+		<div id="studentDiv" style="visibility:hidden">
+
+			<h5>Student name</h5><input type="text" id="sname"/>
+			<h5>Student id</h5><input type="text" id="sid"/>
+			<h5>Student pass</h5><input type="text" id="spass"/>
+			<input type="button" id="button6" value="  Add  " onclick="return addStu();"/>
+
+		</div>
+	</form>
+<script type="text/javascript" src="validation.js"></script>
+<script type="text/javascript" src="teacher.js"></script>
+</body>
+</html>
