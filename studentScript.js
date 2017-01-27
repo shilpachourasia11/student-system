@@ -12,7 +12,7 @@ function saveDetails()
 	var studentDetails = [];
 	var index = localStorage.getItem("loginIndex");
 	var age = document.getElementById("age").value;
-	var name = document.getElementById("name").vale;
+	var name = document.getElementById("name").value;
 	var gender = document.getElementById("gender").value;
 	var number = document.getElementById("number").value;
 	
@@ -37,7 +37,15 @@ function saveDetails()
 	{
 		document.getElementById('errorLabel').innerHTML = null;
 	}
-
+	if(onlyText(name)==0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Name cannot have numbers in it";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
 
 	if( studentDetails == null)
 	{

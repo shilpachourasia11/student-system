@@ -135,3 +135,15 @@ function checkFodDuplicatesStudents(checkVar)
       }
       return 1;
 }
+
+function onlyText(checkVar)
+{
+   if(/^[a-zA-Z]+$/.test(checkVar))
+   {
+      return 1;
+   } 
+   else
+   {
+      return 0;
+   }
+}

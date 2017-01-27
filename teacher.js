@@ -23,7 +23,15 @@ function savePD()
 	{
 		document.getElementById('errorLabel').innerHTML = null;
 	}
-
+	if(onlyText(name)==0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Name cannot have numbers in it";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
 	var teacherPersonalTemp = [];
 	
 	teacherPersonalTemp = JSON.parse(localStorage.getItem("teacherPersonal"));
@@ -93,23 +101,32 @@ function saveQD()
 	//document.getElementById("des").readOnly=true;
 }
 
-function addStudents(){
+function enableAddStudents(){
 	var teacher = JSON.parse(localStorage.getItem("teach"));
 	var hod = JSON.parse(localStorage.getItem("hod"));
 
 	var index = localStorage.getItem("loginIndex");
 
+	if(hod == null || hod== undefined)
+	{
+		hod = [];
+	}
+
 	for(var i = 0; i<hod.length; i++)
 	{
-		if(hod[index].idHod== hod[i].idHod)
+		if(teacher[index].id== hod[i].idHod)
 		{
 			document.getElementById("studentDiv").style.visibility = "visible";
+		}
+		else
+		{
+			document.getElementById('errorLabel').innerHTML = "You are not HOD";
 		}
 	}	
 
 }
 
-function addStu()
+function addStudents()
 {
 	var id = document.getElementById("sid").value;
 	var name = document.getElementById("sname").value;

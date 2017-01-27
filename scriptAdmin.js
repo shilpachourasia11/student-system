@@ -32,7 +32,15 @@ function addDep()
 	{
 		document.getElementById('errorLabel').innerHTML = null;
 	}
-
+	if(onlyText(dept1)==0)
+	{
+		document.getElementById('errorLabel').innerHTML = "department name cannot have numbers in it";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
     dep.push({
     	"dep" : dept1,
     	"subject" : []
@@ -60,7 +68,15 @@ function addSubjects()
 	{
 		document.getElementById('errorLabel').innerHTML = null;
 	}
-
+	if(onlyText(subject)==0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Subject name cannot have numbers in it";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
 	
 	var key1;
 
