@@ -116,25 +116,44 @@ function addStu()
 	var pass = document.getElementById("spass").value;
 	var index = localStorage.getItem("loginIndex");
 	var teacher = JSON.parse(localStorage.getItem("teach"));
+	var studentTemp = [];
 
+	studentTemp = JSON.parse(localStorage.getItem("students"));
 
-	studTemp = JSON.parse(localStorage.getItem("students"));
-	var stud = [];
-
-	if(studTemp != null)
+	if(studentTemp == null)
 	{
-		stud = studTemp ;
+		studentTemp = [] ;
 	}
 
-	stud.push(
+	if(checkFodDuplicatesStudents(id) == 0)
 	{
-		sid : id,
-		sname : name,
-		npass : pass,
-		sdep : teacher[index].dept
-	})
+		document.getElementById('errorLabel').innerHTML = "Already added this student";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
 
-	localStorage.setItem("students",JSON.stringify(stud));
+	if(	passwordLengthCheck(pass) == 0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Password must be more than six characters";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
+
+	studentTemp.push(
+	{
+		"sid" : id,
+		"sname" : name,
+		"npass" : pass,
+		"sdep" : teacher[index].dept
+	});
+
+	localStorage.setItem("students",JSON.stringify(studentTemp));
 }
 
 function logout()

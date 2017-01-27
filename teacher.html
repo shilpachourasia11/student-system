@@ -12,9 +12,10 @@
 			<img src="teacher.jpg" alt="Image Unavailable" height="70" width="70"/>
 			<input type="button" id="logoutButtton" value=" Logout " onclick="return logout();"/>
 			<h3>PERSONAL DETAILS</h3> 
-			<h5>Name</h5>  <input type="text" id="name" readonly="true"/>
-			<h5>Age</h5>	<input type="number" id="age" readonly="true"/>
-			<h5>Gender</h5> <input type="text" id="gender" readonly="true"/>
+			<h5>Name</h5>  <input type="text" class="inputText" id="name" readonly="true"/>
+			<h5>Age</h5>	<input type="number" class="inputText" id="age" readonly="true"/>
+			<h5>Gender</h5> <input type="text" class="inputText" id="gender" readonly="true"/>
+			<br>
 			
 			<input type="button" id="button1" value=" EDIT " onclick="return editPD();"/>
 			<input type="button" id="button2" value=" SAVE " onclick="return savePD();"/>
@@ -23,10 +24,11 @@
 		<div>
 
 			<h3>QUALIFICATIONS</h3>
-			<h5>Master</h5>  <input type="text" id="master" readonly="true"/>
-			<h5>Bachelor</h5>  <input type="text" id="bachelor" readonly="true"/>
-			<h5>Higher</h5>	<input type="text" id="higher" readonly="true"/>
-			<h5>Secondary</h5> <input type="text" id="second" readonly="true"/>
+			<h5>Master</h5>  <input type="text" class="inputText" id="master" readonly="true"/>
+			<h5>Bachelor</h5>  <input type="text" class="inputText" id="bachelor" readonly="true"/>
+			<h5>Higher</h5>	<input type="text" class="inputText" id="higher" readonly="true"/>
+			<h5>Secondary</h5> <input type="text" class="inputText" id="second" readonly="true"/>
+			<br>
 
 			<input type="button" id="button3" value=" EDIT " onclick="return editQD();"/>
 			<input type="button" id="button4" value=" SAVE " onclick="return saveQD();"/>
@@ -38,9 +40,9 @@
 			
 		<div id="studentDiv" style="visibility:hidden">
 
-			<h5>Student name</h5><input type="text" id="sname"/>
-			<h5>Student id</h5><input type="text" id="sid"/>
-			<h5>Student pass</h5><input type="text" id="spass"/>
+			<h5>Student name</h5><input type="text" class="inputText" id="sname"/>
+			<h5>Student id</h5><input type="text" class="inputText" id="sid"/>
+			<h5>Student pass</h5><input type="text" class="inputText" id="spass"/>
 			<input type="button" id="button6" value="  Add  " onclick="return addStu();"/>
 
 		</div>

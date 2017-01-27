@@ -1,7 +1,6 @@
 var dep = [];
 function addDep()
 {
-    //alert("yay");
     var dept1= document.getElementById('department').value;
    	
    	if(	ifFieldEmpty(dept1) == 0)
@@ -24,34 +23,35 @@ function addDep()
 		document.getElementById('errorLabel').innerHTML = null;
 	}
 
+	if(	checkFodDuplicatesDepartments(dept1) == 0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Department has already been added";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
 
-    /*if(dept1 != 'undefined')
-    {*/
-    	dep.push({
-    		"dep" : dept1,
-    		"subject" : []
-    	});
-    	localStorage.setItem("dept",JSON.stringify(dep));
-   		var storeddep = JSON.parse(localStorage.getItem("dept"));
-    	var sel = document.getElementById("select1");
-    	var option = document.createElement("option");
-    	option.textContent = storeddep[storeddep.length - 1].dep;
-    	sel.appendChild(option);
-    	//d++;
-    	alert("Department added");
- /*   }
-    else
-    {
-    	alert("eh!");
-    }*/
+    dep.push({
+    	"dep" : dept1,
+    	"subject" : []
+    });
+    localStorage.setItem("dept",JSON.stringify(dep));
+   	var storeddep = JSON.parse(localStorage.getItem("dept"));
+    var sel = document.getElementById("select1");
+    var option = document.createElement("option");
+    option.textContent = storeddep[storeddep.length - 1].dep;
+    sel.appendChild(option);
+    alert("Department added");
  }
 
-function addSub()
+function addSubjects()
 {	
 	var department = document.getElementById("select1").value;
-	var sub = document.getElementById("subject").value;
+	var subject = document.getElementById("subject").value;
 
-	if(	ifFieldEmpty(sub) == 0)
+	if(	ifFieldEmpty(subject) == 0)
 	{
 		document.getElementById('errorLabel').innerHTML = "Can not leave this block empty";
 		return;
@@ -61,7 +61,7 @@ function addSub()
 		document.getElementById('errorLabel').innerHTML = null;
 	}
 
-
+	
 	var key1;
 
 	for(var i=0;i<dep.length;i++)
@@ -72,22 +72,28 @@ function addSub()
 			break;
 		}
 	}
-	dep[key1].subject.push(sub);
+
+	if(	checkFodDuplicatesSubjects(subject , key1) == 0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Already added this subject";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
+
+	dep[key1].subject.push(subject);
 	
 	localStorage.setItem("dept",JSON.stringify(dep)); // din not add stringify because it gave erros 
 
 	alert("Subjects Added");
-
-	//dep[0].subject.push(sub); kaam kar rha hai
-	//alert(dep[0].subject); kaam kar rha hai
 }
 
 
-function shoSub()
+function showSubject()
 {
-	//alert("shosub");
-	var sel = document.getElementById("select2"); 
-	//alert(storeddep.dep[0]);
+	var sel = document.getElementById("select2");
 	var i;
     for(i = sel.options.length - 1 ; i >= 0 ; i--)
     {
@@ -95,6 +101,7 @@ function shoSub()
     }
 	var department = document.getElementById("select1").value;
 	var storeddep =localStorage.getItem("dept");
+
 	for(var i=0;i<Object.keys(dep).length;i++)
 	{
 		if(department==dep[i].dep)
@@ -112,7 +119,7 @@ function shoSub()
 }
 
 
-function addTeach()
+function addTeacher()
 {
 
 	alert("adding teachers");
@@ -130,8 +137,7 @@ function addTeach()
 	{
 		document.getElementById('errorLabel').innerHTML = null;
 	}
-
-	// var teachers = [] ;
+	
 	var teachTemp = [];
 	teachTemp = JSON.parse(localStorage.getItem("teach"));
 
@@ -143,6 +149,17 @@ function addTeach()
 	if(	passwordLengthCheck(tpas) == 0)
 	{
 		document.getElementById('errorLabel').innerHTML = "Password must be more than six characters";
+		return;
+	}
+	else
+	{
+		document.getElementById('errorLabel').innerHTML = null;
+	}
+
+	
+	if(	checkFodDuplicatesTeachers(tid) == 0)
+	{
+		document.getElementById('errorLabel').innerHTML = "Already added this teacher";
 		return;
 	}
 	else
@@ -164,7 +181,7 @@ function addTeach()
 }
 
 
-function shoTeach()
+function showTeacher()
 {
 	alert("Showing teachers");
 	var sel = document.getElementById("select3"); 
